@@ -1,0 +1,47 @@
+Just fix these issues:
+
+1) SHOP LISTER / BARBER ROLE AFTER APPROVAL
+- When a user lists a shop and the admin approves it, the same account should act as a **shop owner/barber** when they log in.
+- After login:
+  - If user has an approved shop → show **shop owner/barber dashboard** with their shop + bookings.
+  - They should NOT be treated only as a normal customer.
+- The approved shop should display its own barbers (added by that user), not empty.
+
+2) FOOTER LINKS + WRITE REVIEW + YEAR
+- “Write a Review” in the footer must open a proper review flow:
+  - Only logged-in customers.
+  - Step 1: choose one of their booked shops.
+  - Step 2: rating (1–5) + text review.
+  - Submit → attach review to that shop and show it on the shop detail page.
+- “About Us” should open a section/page with a short, genuine description text.
+- “Contact Us” should open a simple contact section/page (support email, dummy phone, short message form with success message).
+- Footer currently just scrolls to top or does nothing → every footer item must do something meaningful.
+- Change “© 2024 …” to “© 2025 …”.
+
+3) HEADER “DISCOVER” LINK
+- The “Discover” item in the header should scroll the user to the **shops list section** on the home page (smooth scroll).
+
+4) HARDCODED NAME “Alex M.”
+- Remove the hard-coded name “Alex M.” everywhere.
+- In navbar/profile and any “Welcome” text, show the **actual logged-in user’s name** from auth data.
+- If no name exists, fall back to the user’s email prefix.
+
+5) BARBER CARDS: PHOTOS + “ANY AVAILABLE” OPTION
+- Two barbers currently show the same profile photo in the “Choose Your Barber” section.
+  - Change at least one to a different image so they look distinct.
+- Add an extra selectable option: **“Any Available Barber”** in the barber selection step:
+  - When chosen, the booking is not tied to a specific barber, just to the shop.
+  - Keep existing logic for specific barber choice as well.
+
+After changes, verify:
+- Shop lister logs in and sees their shop owner view.
+- Footer links work and show real content; year is 2025.
+- Discover scrolls to the shops section.
+- Logged-in user’s name appears instead of “Alex M.”.
+- Barber cards have different photos and include an “Any Available Barber” option.
+
+
+
+
+
+

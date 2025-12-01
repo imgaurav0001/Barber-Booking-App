@@ -1,0 +1,167 @@
+You are an expert full-stack engineer.
+
+I already have a working **Barber & Salon Marketplace Web App** with:
+- Customer / Barber / Admin roles
+- Home page, shop details, booking system, and dashboards
+- Login / Register with role selection
+- “Modern Gentleman” design (Deep Navy, Gold, Off-White)
+
+⚠️ IMPORTANT:
+- Do NOT rebuild the app from scratch.
+- Keep the current design, theme, and structure.
+- Just FIX and REFINE the behavior as described below.
+
+================================================
+1️⃣ CUSTOMER PROFILE – MUST SHOW CORRECT BOOKINGS
+================================================
+
+Problem:
+- When a **customer is logged in**, the profile/dashboard section is not working properly and does NOT show their bookings correctly.
+
+What I want:
+- When a customer logs in and opens their **Profile / Dashboard**:
+  - It should show:
+    - Their basic details: name, email, role = "Customer"
+    - A clear **“My Bookings”** section that lists ONLY this customer’s bookings.
+
+“My Bookings” must display, for each booking:
+- Shop name
+- Service name(s)
+- Date & Time
+- Status (Pending, Approved, Rejected, Completed)
+
+Also:
+- Separate upcoming and past bookings OR clearly label them.
+- If the customer has no bookings, show a friendly message like:
+  “You don’t have any bookings yet.”
+
+Key rule:
+- A customer must **only see their own bookings**, never other users’ bookings.
+
+Please:
+- Fix the backend API and frontend wiring so that:
+  - The bookings are fetched using the currently logged-in customer’s ID.
+  - The customer dashboard reliably displays their bookings every time.
+
+======================================================
+2️⃣ WHO CAN ADD / LIST A SHOP – ONLY BARBER / SHOP OWNER
+======================================================
+
+Problem:
+- Right now, when a customer is logged in, the functionality for listing a shop is wrong/unclear.
+
+What I want:
+- Normal **customers should NOT be able to list/add a shop**.
+- Only **barber / shop owner** accounts should have the option to add and manage a shop.
+
+Desired behavior:
+
+A. CUSTOMER role:
+- Can:
+  - Browse shops
+  - View shop details
+  - Book services
+  - See their bookings in profile
+- Cannot:
+  - Add a shop
+  - Manage services
+  - Access admin portal
+
+B. BARBER / SHOP OWNER role:
+- When logged in as barber, there should be a clear option in their dashboard:
+  - “Add Your Shop” or “Create Shop”
+
+- The **Add Shop** form should include at least:
+  - Shop name
+  - Shop address
+  - Description
+  - Barber / owner name (or this can come from the logged-in user)
+  - Services list:
+    - Service name
+    - Short description
+    - Price
+    - Duration (in minutes)
+
+- After submission:
+  - The shop should be created and linked to that barber user.
+  - The shop should go into a **Pending Approval** state until admin approves it.
+
+- Barber dashboard should allow:
+  - Viewing and editing their shop details.
+  - Viewing bookings made by customers for their shop.
+  - Approving or rejecting those bookings.
+
+Please:
+- Make sure that:
+  - Only users with barber role see “Add Shop / Manage Shop” options.
+  - Customers never see those options.
+
+=========================================
+3️⃣ SINGLE ADMIN USER ONLY – LOCK ADMIN
+=========================================
+
+Requirement:
+- There must be exactly **one real admin account**:
+  - Email: `admin123@gmail.com`
+  - Password: `admin123`
+  - Role: `admin`
+
+Admin rules:
+
+1. Only this user can access the **Admin Portal**.
+2. If any other user tries to visit the admin route/page:
+   - They should be blocked (access denied) or redirected.
+3. Even if someone tries to register with role=admin from UI:
+   - They should NOT become a real admin.
+   - Only the hardcoded/seeding admin user above is treated as admin.
+
+Admin abilities:
+- Can log in and open **Admin Dashboard**.
+- Can see list of shops waiting for approval.
+- Can **Approve** or **Reject** shops.
+- (If reviews moderation already exists) can approve/reject reviews.
+
+Please:
+- Enforce admin checks by both:
+  - role = admin
+  - email = `admin123@gmail.com`
+- Protect admin routes (backend and frontend) so that no other account can reach the admin portal or perform admin actions.
+
+=========================================
+4️⃣ BARBER DASHBOARD – MANAGE BUSINESS
+=========================================
+
+Desired simple behavior:
+
+- **Customer**:
+  - Logs in → sees profile + only their own bookings.
+
+- **Barber**:
+  - Logs in → sees:
+    - Option to create/edit their shop (name, address, services, prices, durations).
+    - List of customer bookings for their shop.
+    - Buttons to **Approve** or **Reject** those bookings.
+
+- **Admin** (`admin123@gmail.com` / `admin123`):
+  - Logs in → sees admin portal.
+  - Can approve or reject shops (and reviews if present).
+
+Please:
+- Check all role-based pages and buttons.
+- Make sure each role only sees and does what is described above.
+
+=========================================
+5️⃣ SUMMARY AFTER CHANGES
+=========================================
+
+After you finish, please:
+- Briefly summarize:
+  - What you fixed for the customer profile bookings.
+  - How the “Add Shop” flow now works for barbers.
+  - How the single admin account and admin portal are now restricted.
+- Confirm example logins to test:
+  - Admin: `admin123@gmail.com` / `admin123`
+  - One demo customer (if available)
+  - One demo barber (if available)
+
+Keep the existing design (Modern Gentleman style) and only refine the logic and role behavior as requested.
